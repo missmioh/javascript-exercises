@@ -1,30 +1,20 @@
-const removeFromArray = function(arr, arg) {
+const removeFromArray = function(arr, ...args) {
     const array = arr;
 
-    for (const element of array) {
-        if (element === arg) {
-            let indexNumber = array.indexOf(element);
-            array.splice(indexNumber, 1);
-        } 
+    for (let i = 0; i < array.length; i++)  {
+        for (let argument of args) {
+
+            if (array[i] === argument) {
+                let indexNumber = array.indexOf(array[i]);
+                array.splice(indexNumber, 1);
+                i--;
+                // note to self: needs to be decreased as the original array becomes shorter and the
+                // corresponding element is moving up the list (e.g. from index 1 to 0)
+            } 
+        }
     } return array;
 };
 
 // Do not edit below this line
 module.exports = removeFromArray;
-
-    // for ... of loop that goes through the array to see if any of the elements
-    //is a match to arg
-
-    //if a match is found, the element will be spliced out using the index number
-    //splice alters the original array, that's what we want.
-    // array.splice(n, 1); n is the index of the element
-
-    //then return the altered array.
-// array
-// 0: 1
-// 1: 2
-// 2: 3
-// 3: 4
-
-// 15:36: works with strings but not multiples
 
