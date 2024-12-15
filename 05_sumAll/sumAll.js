@@ -5,8 +5,12 @@ const sumAll = function(x, y) {
         return "ERROR";
     } else if (parseInt(x) !== x || parseInt(y) !== y) {
         return "ERROR";
+    } else if (x > y) {
+        for (let i = (x-1); i >= y; i--) {
+            sum += i;
+         }
     } else {
-        for (let i = (x+1) ; i <= y; i++) {
+        for (let i = (x+1); i <= y; i++) {
            sum += i;
         }
     }
